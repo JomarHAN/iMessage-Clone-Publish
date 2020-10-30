@@ -50,3 +50,11 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+form > .MuiFormControl-root{
+    width: 100%;
+}
+
+.addChatBtn{
+    margin-top: 10px!important;
+}
