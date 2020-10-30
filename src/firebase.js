@@ -20,3 +20,5 @@ export {
 };
 
 export default db
+
+
