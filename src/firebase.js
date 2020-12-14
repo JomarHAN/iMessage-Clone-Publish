@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 
 const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyBjtKSuidwJUu2LdtPuuFyLbwkPO50mpms",
+    apiKey: "API_KEY",
     authDomain: "imessage-clone-ad53b.firebaseapp.com",
     databaseURL: "https://imessage-clone-ad53b.firebaseio.com",
     projectId: "imessage-clone-ad53b",
