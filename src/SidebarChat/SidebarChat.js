@@ -2,7 +2,7 @@ import { Avatar } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setChat } from "../features/chatSlice";
+import { setBackHome, setChat } from "../features/chatSlice";
 import db from "../firebase";
 import "./SidebarChat.css";
 import * as timeago from "timeago.js";
@@ -21,10 +21,15 @@ function SidebarChat({ id, chatName }) {
       );
   }, [id]);
 
+  const clickChat = () => {
+    dispatch(setChat({ chatName: chatName, chatId: id }))
+    dispatch(setBackHome({ backHome: false }))
+  }
+
   return (
     <div
       className="sidebarChat"
-      onClick={() => dispatch(setChat({ chatName: chatName, chatId: id }))}
+      onClick={clickChat}
     >
       <Avatar src={messages[0]?.photo} />
       <div className="sidebarChat__info">

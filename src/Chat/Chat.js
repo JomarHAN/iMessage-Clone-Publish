@@ -1,9 +1,13 @@
 import { IconButton } from "@material-ui/core";
-import { MicOutlined } from "@material-ui/icons";
+import { Apps, MicOutlined } from "@material-ui/icons";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectChatId, selectChatName } from "../features/chatSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectChatId,
+  selectChatName,
+  setBackHome,
+} from "../features/chatSlice";
 import { selectUser } from "../features/userSlice";
 import db from "../firebase";
 import Message from "../Messages/Message";
@@ -17,6 +21,7 @@ function Chat() {
   const user = useSelector(selectUser);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
+  const dispatch = useDispatch();
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -53,7 +58,11 @@ function Chat() {
         <h4>
           TO: <span className="chat__name">{chatName}</span>
         </h4>
-        <strong>Detail</strong>
+        <div className="chat__button">
+          <IconButton onClick={() => dispatch(setBackHome({ backHome: true }))}>
+            <Apps />
+          </IconButton>
+        </div>
       </div>
 
       <div className="chat__messages">
